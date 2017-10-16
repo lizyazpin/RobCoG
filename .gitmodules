@@ -5,7 +5,7 @@
 [submodule "Plugins/USemLog"]
 	path = Plugins/USemLog
 	url = https://github.com/robcog-iai/USemLog.git
-	branch = dev-ed
+	branch = 0.2
 [submodule "Plugins/UPIDController"]
 	path = Plugins/UPIDController
 	url = https://github.com/robcog-iai/UPIDController.git
