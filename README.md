@@ -1,3 +1,5 @@
+[![](Documentation/Img/OpenDrawer.jpg)](https://vimeo.com/235481733)
+
 # RobCoG - **Rob**ot **Co**mmonsense **G**ames 
 
 Equipping robots with commonsense and naive physics knowledge.
