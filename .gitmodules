@@ -1,0 +1,20 @@
+[submodule "Plugins/UTFPublisher"]
+	path = Plugins/UTFPublisher
+	url = https://github.com/robcog-iai/UTFPublisher.git
+	branch = master
+[submodule "Plugins/URoboSim"]
+	path = Plugins/URoboSim
+	url = https://github.com/robcog-iai/URoboSim
+	branch = master
+[submodule "Plugins/UROSBridge"]
+	path = Plugins/UROSBridge
+	url = https://github.com/robcog-iai/UROSBridge
+	branch = master
+[submodule "Plugins/UTags"]
+	path = Plugins/UTags
+	url = https://github.com/robcog-iai/UTags
+	branch = master
+[submodule "Plugins/UCoordConv"]
+	path = Plugins/UCoordConv
+	url = https://github.com/robcog-iai/UCoordConv
+	branch = master
