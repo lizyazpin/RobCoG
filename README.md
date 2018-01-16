@@ -1,21 +1,68 @@
-[![](Documentation/Img/env.jpg)](http://robcog.org/)
 
-# RobCoG - **Rob**ot **Co**mmonsense **G**ames 
+![](Documentation/Img/robot.png)
+
+# RobCoG - **Rob**ot **Co**mmonsense **G**ames
 
 Equipping robots with commonsense and naive physics knowledge.
 
-# Environment branch
+# Example project showcasing various plugins:
 
-No functionalities just the kitchen environment assets.
+### Robot Simulation ([URoboSim](https://github.com/robcog-iai/URoboSim))
 
-# Map naming
+* See [documentation](Documentation/Documentation.md) for more details.
 
-`Kitchen.umap` -> default level
+### TF Publisher ([UTFPublisher](https://github.com/robcog-iai/UTFPublisher))
 
-`Kitchen-Daytime.umap` -> level with sunlight 
+### ROS Bridge with Unreal Engine ([UROSBridge](https://github.com/robcog-iai/UROSBridge))
 
-`Kitchen-Nighttime.umap` -> level with interior lightning only 
+# Submodules
 
-`Kitchen-Overcast.umap` -> level with overcast weather outside 
+ * ```Plugins``` are added as submodules.
+
+```git submodule update --init --recursive```
+
+
+# Quick Start
+
+
+### [URoboSim](https://github.com/robcog-iai/URoboSim)
+
+Drag and drop the pr2 example urdf in the content menu
+
+![](Documentation/Img/drag-drop-urdf.png "Robot example")
+
+Drag and drop the the generated file in the world
+
+![](Documentation/Img/drag-drop-robot.png "Robot example")
+
+Generated robot tree
+
+![](Documentation/Img/robot-tree.png "Robot example")
+
+
+### [UROSBridge](https://github.com/robcog-iai/UROSBridge)
+
+* Install ROS package [rosbridge_suite](http://wiki.ros.org/rosbridge_suite)
+
+* After installation, set up your environment for ROS and rosbridge:
+
+   ```source /opt/ros/<rosdistro>/setup.bash```
+
+* Run the rosbridge to create a [WebSocket](https://www.websocket.org/) on port 9090 by default.
+
+   ```roslaunch rosbridge_server rosbridge_websocket.launch```
+
+* Run the following command to publish a String Message 'Hello World' to a ROS topic.
+
+   ```rostopic pub ROSString std_msgs/String "Hello World"```
+
+* Add  ```ROSStringPublisher``` and ```ROSStringSubscriber``` actors to your level/world
+
+* Set your ROS bridge IP and PORT:
+
+![](Documentation/Img/ROSPub.JPG)
+![](Documentation/Img/ROSSub.JPG)
+
+### [UTFPublisher](https://github.com/robcog-iai/UTFPublisher)
 
 ### Engine Version 4.18
