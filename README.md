@@ -7,13 +7,11 @@ Equipping robots with commonsense and naive physics knowledge.
 
 # Example project showcasing various plugins:
 
-### Robot Simulation ([URoboSim](https://github.com/robcog-iai/URoboSim))
+* Robot Simulation ([URoboSim](https://github.com/robcog-iai/URoboSim)), See [documentation](Documentation/Documentation.md) for more details.
+ 
+* TF Publisher ([UTFPublisher](https://github.com/robcog-iai/UTFPublisher))
 
-* See [documentation](Documentation/Documentation.md) for more details.
-
-### TF Publisher ([UTFPublisher](https://github.com/robcog-iai/UTFPublisher))
-
-### ROS Bridge with Unreal Engine ([UROSBridge](https://github.com/robcog-iai/UROSBridge))
+* ROS Bridge with Unreal Engine ([UROSBridge](https://github.com/robcog-iai/UROSBridge))
 
 # Submodules
 
@@ -22,7 +20,7 @@ Equipping robots with commonsense and naive physics knowledge.
 ```git submodule update --init --recursive```
 
 
-# Quick Start
+# Quick Start:
 
 
 ### [URoboSim](https://github.com/robcog-iai/URoboSim)
