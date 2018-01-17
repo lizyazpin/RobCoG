@@ -18,5 +18,5 @@ public:
 	FROSStringSubscriberCallback(FString InTopic);
 	~FROSStringSubscriberCallback() override;
 	TSharedPtr<FROSBridgeMsg> ParseMessage(TSharedPtr<FJsonObject> JsonObject) const override;
-	void CallBack(TSharedPtr<FROSBridgeMsg> Msg) override;
+	void Callback(TSharedPtr<FROSBridgeMsg> Msg) override;
 };

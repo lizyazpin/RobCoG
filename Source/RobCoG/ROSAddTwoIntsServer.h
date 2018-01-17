@@ -3,7 +3,7 @@
 #pragma once
 
 #include "ROSBridgeSrvServer.h"
-#include "tutorial_srvs/AddTwoInts.h"
+#include "beginner_tutorials/AddTwoInts.h"
 
 class FROSAddTwoIntsServer final : public FROSBridgeSrvServer
 {
@@ -16,21 +16,22 @@ public:
 
     TSharedPtr<FROSBridgeSrv::SrvRequest> FromJson(TSharedPtr<FJsonObject> JsonObject) const override
     {
-        TSharedPtr<FROSBridgeSrvRospytutorialsAddTwoInts::Request> Request_ =
-            MakeShareable(new FROSBridgeSrvRospytutorialsAddTwoInts::Request());
+        TSharedPtr<beginner_tutorials::AddTwoInts::Request> Request_ =
+            MakeShareable(new beginner_tutorials::AddTwoInts::Request());
         Request_->FromJson(JsonObject);
         return TSharedPtr<FROSBridgeSrv::SrvRequest>(Request_);
     }
 
-    TSharedPtr<FROSBridgeSrv::SrvResponse> CallBack(TSharedPtr<FROSBridgeSrv::SrvRequest> Request) const override
+    TSharedPtr<FROSBridgeSrv::SrvResponse> Callback(TSharedPtr<FROSBridgeSrv::SrvRequest> InRequest) override
     {
-        TSharedPtr<FROSBridgeSrvRospytutorialsAddTwoInts::Request> Request_ =
-            StaticCastSharedPtr<FROSBridgeSrvRospytutorialsAddTwoInts::Request>(Request);
+        TSharedPtr<beginner_tutorials::AddTwoInts::Request> Request =
+            StaticCastSharedPtr<beginner_tutorials::AddTwoInts::Request>(InRequest);
 
-        int64 Sum = Request_->GetA() + Request_->GetB();
-        UE_LOG(LogTemp, Log, TEXT("Service [%s] Server: Add Two Ints: %d + %d = %d"), *Name, Request_->GetA(), Request_->GetB(), Sum);
+        int64 Sum = Request->GetA() + Request->GetB();
+        UE_LOG(LogTemp, Log, TEXT("Service [%s] Server: Add Two Ints: %d + %d = %d"),
+			*Name, Request->GetA(), Request->GetB(), Sum);
 
         return MakeShareable<FROSBridgeSrv::SrvResponse>
-                (new FROSBridgeSrvRospytutorialsAddTwoInts::Response(Sum));
+                (new beginner_tutorials::AddTwoInts::Response(Sum));
     }
 };

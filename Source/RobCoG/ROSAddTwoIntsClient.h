@@ -3,7 +3,7 @@
 #pragma once
 
 #include "ROSBridgeSrvClient.h"
-#include "tutorial_srvs/AddTwoInts.h"
+#include "beginner_tutorials/AddTwoInts.h"
 
 class FROSAddTwoIntsClient final : public FROSBridgeSrvClient
 {
@@ -14,12 +14,13 @@ public:
 
     }
 
-    void CallBack(TSharedPtr<FROSBridgeSrv::SrvRequest> Request, TSharedPtr<FROSBridgeSrv::SrvResponse> Response) const override
+    void Callback(TSharedPtr<FROSBridgeSrv::SrvRequest> InRequest, TSharedPtr<FROSBridgeSrv::SrvResponse> InResponse) const override
     {
-        TSharedPtr<FROSBridgeSrvRospytutorialsAddTwoInts::Request> Request_ =
-            StaticCastSharedPtr<FROSBridgeSrvRospytutorialsAddTwoInts::Request>(Request);
-        TSharedPtr<FROSBridgeSrvRospytutorialsAddTwoInts::Response> Response_=
-            StaticCastSharedPtr<FROSBridgeSrvRospytutorialsAddTwoInts::Response>(Response);
-        UE_LOG(LogTemp, Log, TEXT("Add Two Ints: %d + %d = %d"), Request_->GetA(), Request_->GetB(), Response_->GetSum());
+        TSharedPtr<beginner_tutorials::AddTwoInts::Request> Request =
+            StaticCastSharedPtr<beginner_tutorials::AddTwoInts::Request>(InRequest);
+        TSharedPtr<beginner_tutorials::AddTwoInts::Response> InResponse=
+            StaticCastSharedPtr<beginner_tutorials::AddTwoInts::Response>(InResponse);
+        UE_LOG(LogTemp, Log, TEXT("Add Two Ints: %d + %d = %d"),
+			Request->GetA(), Request->GetB(), InResponse->GetSum());
     }
 };

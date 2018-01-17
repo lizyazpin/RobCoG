@@ -21,7 +21,7 @@ TSharedPtr<FROSBridgeMsg> FROSStringSubscriberCallback::ParseMessage
 	return StaticCastSharedPtr<FROSBridgeMsg>(StringMessage);
 }
 
-void FROSStringSubscriberCallback::CallBack(TSharedPtr<FROSBridgeMsg> Msg)
+void FROSStringSubscriberCallback::Callback(TSharedPtr<FROSBridgeMsg> Msg)
 {
 	TSharedPtr<std_msgs::String> StringMessage = StaticCastSharedPtr<std_msgs::String>(Msg);
 	// downcast to subclass using StaticCastSharedPtr function

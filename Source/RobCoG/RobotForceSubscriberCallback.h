@@ -32,7 +32,7 @@ public:
         return StaticCastSharedPtr<FROSBridgeMsg>(JointStateMessage);
     }
 
-    void CallBack(TSharedPtr<FROSBridgeMsg> msg) override
+    void Callback(TSharedPtr<FROSBridgeMsg> msg) override
     {
         TSharedPtr<FROSBridgeMsgSensormsgsJointState> JointStateMessage = StaticCastSharedPtr<FROSBridgeMsgSensormsgsJointState>(msg);
 
