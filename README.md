@@ -8,7 +8,7 @@ Equipping robots with commonsense and naive physics knowledge.
 # Example project showcasing various plugins:
 
 * Robot Simulation ([URoboSim](https://github.com/robcog-iai/URoboSim)), See [documentation](Documentation/Documentation.md) for more details.
- 
+
 * TF Publisher ([UTFPublisher](https://github.com/robcog-iai/UTFPublisher))
 
 * ROS Bridge with Unreal Engine ([UROSBridge](https://github.com/robcog-iai/UROSBridge))
@@ -52,7 +52,7 @@ Generated robot tree
 
 * Run the following command to publish a String Message 'Hello World' to a ROS topic.
 
-   ```rostopic pub ROSString std_msgs/String "Hello World"```
+   ```rostopic pub -r 10 ROSString std_msgs/String "Hello World"```
 
 * Add  ```ROSStringPublisher``` and ```ROSStringSubscriber``` actors to your level/world
 
