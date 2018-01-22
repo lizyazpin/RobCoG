@@ -63,6 +63,6 @@ Generated robot tree
 
 ### [UTFPublisher](https://github.com/robcog-iai/UTFPublisher)
 
-![](Documentation/Img/tf_pr2.JPG)
+![](Documentation/Img/tf_pr2.jpg)
 
 ### Engine Version 4.18
