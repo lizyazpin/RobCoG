@@ -16,10 +16,10 @@ public:
 
     TSharedPtr<FROSBridgeSrv::SrvRequest> FromJson(TSharedPtr<FJsonObject> JsonObject) const override
     {
-        TSharedPtr<beginner_tutorials::AddTwoInts::Request> Request_ =
+        TSharedPtr<beginner_tutorials::AddTwoInts::Request> Request =
             MakeShareable(new beginner_tutorials::AddTwoInts::Request());
-        Request_->FromJson(JsonObject);
-        return TSharedPtr<FROSBridgeSrv::SrvRequest>(Request_);
+        Request->FromJson(JsonObject);
+        return TSharedPtr<FROSBridgeSrv::SrvRequest>(Request);
     }
 
     TSharedPtr<FROSBridgeSrv::SrvResponse> Callback(TSharedPtr<FROSBridgeSrv::SrvRequest> InRequest) override

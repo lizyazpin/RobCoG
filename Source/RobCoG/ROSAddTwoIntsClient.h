@@ -14,12 +14,14 @@ public:
 
     }
 
-    void Callback(TSharedPtr<FROSBridgeSrv::SrvRequest> InRequest, TSharedPtr<FROSBridgeSrv::SrvResponse> InResponse) const override
+    void Callback(TSharedPtr<FROSBridgeSrv::SrvRequest> InRequest, TSharedPtr<FROSBridgeSrv::SrvResponse> InResponse) override
     {
         TSharedPtr<beginner_tutorials::AddTwoInts::Request> Request =
             StaticCastSharedPtr<beginner_tutorials::AddTwoInts::Request>(InRequest);
+
         TSharedPtr<beginner_tutorials::AddTwoInts::Response> InResponse=
             StaticCastSharedPtr<beginner_tutorials::AddTwoInts::Response>(InResponse);
+
         UE_LOG(LogTemp, Log, TEXT("Add Two Ints: %d + %d = %d"),
 			Request->GetA(), Request->GetB(), InResponse->GetSum());
     }
