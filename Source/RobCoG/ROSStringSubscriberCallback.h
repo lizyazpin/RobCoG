@@ -15,8 +15,10 @@
 class ROBCOG_API FROSStringSubscriberCallback : public FROSBridgeSubscriber 
 {
 public:
-	FROSStringSubscriberCallback(FString InTopic);
+	FROSStringSubscriberCallback(AActor* InOwner, const FString& InType, const FString& InTopic);
 	~FROSStringSubscriberCallback() override;
 	TSharedPtr<FROSBridgeMsg> ParseMessage(TSharedPtr<FJsonObject> JsonObject) const override;
 	void Callback(TSharedPtr<FROSBridgeMsg> Msg) override;
+private:
+	AActor* Owner;
 };

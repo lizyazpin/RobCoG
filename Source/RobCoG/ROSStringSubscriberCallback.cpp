@@ -3,9 +3,11 @@
 
 #include "ROSStringSubscriberCallback.h"
 
-FROSStringSubscriberCallback::FROSStringSubscriberCallback(FString InTopic) :
-	FROSBridgeSubscriber(TEXT("std_msgs/String"), InTopic) 
+FROSStringSubscriberCallback::FROSStringSubscriberCallback(
+	AActor* InOwner, const FString& InType, const FString& InTopic) :
+	FROSBridgeSubscriber(InType, InTopic)
 {
+	Owner = InOwner;
 }
 
 FROSStringSubscriberCallback::~FROSStringSubscriberCallback()
@@ -26,7 +28,8 @@ void FROSStringSubscriberCallback::Callback(TSharedPtr<FROSBridgeMsg> Msg)
 	TSharedPtr<std_msgs::String> StringMessage = StaticCastSharedPtr<std_msgs::String>(Msg);
 	// downcast to subclass using StaticCastSharedPtr function
 
-	UE_LOG(LogTemp, Log, TEXT("Message received! Content: %s"), *StringMessage->GetData());
+	UE_LOG(LogTemp, Log, TEXT("[%s] Message received by %s! Content: %s"),
+		*FString(__FUNCTION__), *Owner->GetName(), *StringMessage->GetData());
 	// do something with the message
 
 	return;

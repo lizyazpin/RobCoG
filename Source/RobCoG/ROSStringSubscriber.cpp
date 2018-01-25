@@ -17,7 +17,7 @@ AROSStringSubscriber::AROSStringSubscriber()
 	// Set Port to 9090
 	Port = 9090;
 
-	// Set rostopic name which publish strings
+	// Set ROS topic name which publish strings
 	Topic = TEXT("ROSString");
 }
 
@@ -30,9 +30,10 @@ void AROSStringSubscriber::BeginPlay()
 	Handler = MakeShareable<FROSBridgeHandler>(new FROSBridgeHandler(IPAddress, Port));
 
 	// Create subscriber with callback class
-	Subscriber = MakeShareable<FROSStringSubscriberCallback>(new FROSStringSubscriberCallback(Topic));
+	Subscriber = MakeShareable<FROSStringSubscriberCallback>(
+		new FROSStringSubscriberCallback(this, TEXT("std_msgs/String"), Topic));
 	
-	// Add subscriber to ros handler
+	// Add subscriber to ROS handler
 	Handler->AddSubscriber(Subscriber);
 
 	//Connect to rosbridge
