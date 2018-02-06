@@ -25,8 +25,8 @@ public:
 
     TSharedPtr<FROSBridgeMsg> ParseMessage(TSharedPtr<FJsonObject> JsonObject) const override
     {
-        TSharedPtr<FROSBridgeMsgSensormsgsJointState> JointStateMessage =
-            MakeShareable<FROSBridgeMsgSensormsgsJointState>(new FROSBridgeMsgSensormsgsJointState());
+        TSharedPtr<sensor_msgs::JointState> JointStateMessage =
+            MakeShareable<sensor_msgs::JointState>(new sensor_msgs::JointState());
         JointStateMessage->FromJson(JsonObject);
 
         return StaticCastSharedPtr<FROSBridgeMsg>(JointStateMessage);
@@ -34,7 +34,7 @@ public:
 
     void Callback(TSharedPtr<FROSBridgeMsg> msg) override
     {
-        TSharedPtr<FROSBridgeMsgSensormsgsJointState> JointStateMessage = StaticCastSharedPtr<FROSBridgeMsgSensormsgsJointState>(msg);
+        TSharedPtr<sensor_msgs::JointState> JointStateMessage = StaticCastSharedPtr<sensor_msgs::JointState>(msg);
 
         TArray<FString> ListJointName = JointStateMessage->GetName();
         TArray<double> ListJointForce = JointStateMessage->GetEffort();
