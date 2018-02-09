@@ -11,12 +11,9 @@
 
 class FRobotForceSubscriberCallback : public FROSBridgeSubscriber 
 {
-
 public:
-    ARRobot* Robot;
-
-    FRobotForceSubscriberCallback(FString InTopic, ARRobot* InRobot) :
-        FROSBridgeSubscriber(TEXT("sensor_msgs/JointState"), InTopic)
+    FRobotForceSubscriberCallback(ARRobot* InRobot, const FString& InTopic) :
+        FROSBridgeSubscriber(InTopic, TEXT("sensor_msgs/JointState"))
     {
         Robot = InRobot;
     }
@@ -51,4 +48,6 @@ public:
         return;
     }
 
+private:
+	ARRobot * Robot;
 };

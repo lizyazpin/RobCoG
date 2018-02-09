@@ -61,6 +61,25 @@ Generated robot tree
 ![](Documentation/Img/ROSPub.JPG)
 ![](Documentation/Img/ROSSub.JPG)
 
+#### Service calls
+
+* Add the `ROSAddTwoIntsServiceClient` or `ROSAddTwoIntsServiceServer` actors to the World
+
+* Setup your IP and PORT as mentioned in the above steps
+
+* In ROS add the [ros_tutorials](https://github.com/ros/ros_tutorials) package to your workspace:
+
+``` git clone https://github.com/ros/ros_tutorials.git ```
+
+* For `ROSAddTwoIntsServiceClient`:
+
+``` $ rosrun rospy tutorials add_two_ints_server ```
+
+* For `ROSAddTwoIntsServiceServer`:
+
+``` $ rosrun rospy tutorials add_two_ints_client 11 22 ```
+
+
 ### [UTFPublisher](https://github.com/robcog-iai/UTFPublisher)
 
 ![](Documentation/Img/tf_pr2.jpg)

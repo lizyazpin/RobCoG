@@ -18,7 +18,7 @@ AROSStringPublisher::AROSStringPublisher()
 	Port = 9090;
 	
 	// Set rostopic name which publish strings
-	Topic = TEXT("UnrealString");
+	Topic = TEXT("unreal_to_ros_string");
 }
 
 // Called when the game starts or when spawned
@@ -29,13 +29,13 @@ void AROSStringPublisher::BeginPlay()
 	// Set websocket server address to default
 	Handler = MakeShareable<FROSBridgeHandler>(new FROSBridgeHandler(IPAddress, Port));
 
-	// **** Create publishers here ****
-	Publisher = MakeShareable<FROSBridgePublisher>(
-		new FROSBridgePublisher(TEXT("std_msgs/String"), Topic));
-	Handler->AddPublisher(Publisher);	
-
 	//Connect to ROSBridge Websocket server.
 	Handler->Connect();	
+
+	// **** Create publishers here ****
+	Publisher = MakeShareable<FROSBridgePublisher>(
+		new FROSBridgePublisher(Topic, TEXT("std_msgs/String")));
+	Handler->AddPublisher(Publisher);
 }
 
 // Called when game ends or actor deleted

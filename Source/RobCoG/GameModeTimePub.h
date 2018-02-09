@@ -33,5 +33,6 @@ public:
 
 private:
 	TSharedPtr<FROSBridgeHandler> Handler;
+
 	TSharedPtr<FROSBridgePublisher> TimePublisher;	
 };

@@ -13,16 +13,20 @@ AGameModeTimePub::AGameModeTimePub()
 void AGameModeTimePub::BeginPlay()
 {
     Handler = MakeShareable<FROSBridgeHandler>(new FROSBridgeHandler(TEXT("127.0.0.1"), 9090));
+
     TimePublisher = MakeShareable<FROSBridgePublisher>(
-		new FROSBridgePublisher(TEXT("rosgraph_msgs/Clock"), TEXT("clock")));
-    Handler->AddPublisher(TimePublisher);
+		new FROSBridgePublisher(TEXT("clock"), TEXT("rosgraph_msgs/Clock")));
+
     Handler->Connect();
+
+    Handler->AddPublisher(TimePublisher);
+
     UE_LOG(LogTemp, Log, TEXT("[%s] Websocket server connected."), *FString(__FUNCTION__));
 }
 
 void AGameModeTimePub::Tick(float DeltaSeconds)
 {
-    float GameTime = UGameplayStatics::GetRealTimeSeconds(GetWorld());
+    const float GameTime = UGameplayStatics::GetRealTimeSeconds(GetWorld());
     uint64 GameSeconds = (int)GameTime;
     uint64 GameUseconds = (GameTime - GameSeconds) * 1000000000;
     TSharedPtr<rosgraph_msgs::Clock> Clock = MakeShareable

@@ -18,7 +18,7 @@ AROSStringSubscriber::AROSStringSubscriber()
 	Port = 9090;
 
 	// Set ROS topic name which publish strings
-	Topic = TEXT("ROSString");
+	Topic = TEXT("ros_to_unreal_string");
 }
 
 // Called when the game starts or when spawned
@@ -29,15 +29,15 @@ void AROSStringSubscriber::BeginPlay()
 	// Set websocket server address to default
 	Handler = MakeShareable<FROSBridgeHandler>(new FROSBridgeHandler(IPAddress, Port));
 
+	// Connect to rosbridge
+	Handler->Connect();	
+
 	// Create subscriber with callback class
 	Subscriber = MakeShareable<FROSStringSubscriberCallback>(
-		new FROSStringSubscriberCallback(this, TEXT("std_msgs/String"), Topic));
+		new FROSStringSubscriberCallback(this, Topic, TEXT("std_msgs/String")));
 	
 	// Add subscriber to ROS handler
 	Handler->AddSubscriber(Subscriber);
-
-	//Connect to rosbridge
-	Handler->Connect();	
 }
 
 // Called when the game starts or when spawned

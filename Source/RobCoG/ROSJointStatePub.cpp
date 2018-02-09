@@ -26,29 +26,36 @@ void AROSJointStatePub::BeginPlay()
 {
 	Super::BeginPlay();
 
-    bool bFoundActor = false;
+    bool bActorFound = false;
+
     Robot = nullptr;
+
     for (TActorIterator<ARRobot> ActorItr(GetWorld()); ActorItr; ++ActorItr)
     {
         UE_LOG(LogTemp, Log, TEXT("Actor Label = [%s]"), *ActorItr->GetActorLabel());
         if (ActorItr->GetActorLabel() == RobotName)
         {
             Robot = *ActorItr;
-            bFoundActor = true;
+            bActorFound = true;
             break;
         }
     }
 
-    checkf(bFoundActor, TEXT("Robot Actor with Name [%s] not found!"), *RobotName);
+    checkf(bActorFound, TEXT("Robot Actor with Name [%s] not found!"), *RobotName);
 
     Handler = MakeShareable<FROSBridgeHandler>(new FROSBridgeHandler(WebsocketIPAddr, WebsocketPort));
+
     RobotJointStatePublisher = MakeShareable<FROSBridgePublisher>
-            (new FROSBridgePublisher(TEXT("sensor_msgs/JointState"), RobotJointStateTopic));
+            (new FROSBridgePublisher(RobotJointStateTopic, TEXT("sensor_msgs/JointState")));
+
     RobotForceSubscriber = MakeShareable<FRobotForceSubscriberCallback>
-            (new FRobotForceSubscriberCallback(RobotEffortTopic, Robot));
-    Handler->AddPublisher(RobotJointStatePublisher);
-    Handler->AddSubscriber(RobotForceSubscriber);
+            (new FRobotForceSubscriberCallback(Robot, RobotEffortTopic));
+
     Handler->Connect();
+
+    Handler->AddPublisher(RobotJointStatePublisher);
+
+    Handler->AddSubscriber(RobotForceSubscriber);
 }
 
 // Called when actor destroyed or game ended
