@@ -21,7 +21,11 @@
 		},
 		{
 			"Name": "IKinemaLiveAction",
-			"Enabled": false
+			"Enabled": true
+		},
+		{
+			"Name": "IKinema",
+			"Enabled": true
 		}
 	]
 }
