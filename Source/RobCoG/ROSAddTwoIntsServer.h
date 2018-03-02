@@ -3,6 +3,7 @@
 #pragma once
 
 #include "ROSBridgeSrvServer.h"
+#include "Misc/Base64.h"
 #include "rospy_tutorials/AddTwoInts.h"
 
 class FROSAddTwoIntsServer final : public FROSBridgeSrvServer
@@ -31,6 +32,23 @@ public:
 
         UE_LOG(LogTemp, Log, TEXT("[%s] In actor %s: Service [%s] Server: Add Two Ints: %d + %d = %d"),
 			*FString(__FUNCTION__), *Owner->GetName(), *Name, Request->GetA(), Request->GetB(), Sum);
+
+		//AsyncTask(ENamedThreads::GameThread, [this]()
+		//{
+		//	UE_LOG(LogTemp, Log, TEXT("[%s] Executing on game thread."), *FString(__FUNCTION__));
+		//	Owner->SetActorLocation(FVector(0));
+
+		//	FGuid AGuid = FGuid::NewGuid();
+		//	const FString GuidAsDigits = AGuid.ToString(EGuidFormats::Digits);
+		//	const FString GuidAsBase64 = FBase64::Encode(GuidAsDigits);
+		//	FString GuidBackFromBase64;
+		//	FBase64::Decode(GuidAsBase64, GuidBackFromBase64);
+
+		//	UE_LOG(LogTemp, Log, TEXT("[%s] GuidAsDigits=%s \n GuidAsBase64=%s \n GuidBackFromBase64=%s"),
+		//		*FString(__FUNCTION__),	*GuidAsDigits, *GuidAsBase64, *GuidBackFromBase64);			
+		//}
+		//);
+
 
         return MakeShareable<FROSBridgeSrv::SrvResponse>
                 (new rospy_tutorials::AddTwoInts::Response(Sum));
