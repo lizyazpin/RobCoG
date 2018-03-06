@@ -73,11 +73,11 @@ Generated robot tree
 
 * For `ROSAddTwoIntsServiceClient`:
 
-``` $ rosrun rospy tutorials add_two_ints_server ```
+``` $ rosrun rospy_tutorials add_two_ints_server ```
 
 * For `ROSAddTwoIntsServiceServer`:
 
-``` $ rosrun rospy tutorials add_two_ints_client 11 22 ```
+``` $ rosrun rospy_tutorials add_two_ints_client 11 22 ```
 
 
 ### [UTFPublisher](https://github.com/robcog-iai/UTFPublisher)
