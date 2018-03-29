@@ -14,7 +14,7 @@
 	path = Plugins/UTags
 	url = https://github.com/robcog-iai/UTags
 	branch = master
-[submodule "Plugins/UCoordConv"]
-	path = Plugins/UCoordConv
-	url = https://github.com/robcog-iai/UCoordConv
+[submodule "Plugins/UConversions"]
+	path = Plugins/UConversions
+	url = https://github.com/robcog-iai/UConversions.git
 	branch = master
