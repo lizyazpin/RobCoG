@@ -18,3 +18,7 @@
 	path = Plugins/UConversions
 	url = https://github.com/robcog-iai/UConversions.git
 	branch = master
+[submodule "Plugins/UUtils"]
+	path = Plugins/UUtils
+	url = https://github.com/robcog-iai/UUtils.git
+	branch = master
