@@ -10,14 +10,6 @@
 	path = Plugins/UROSBridge
 	url = https://github.com/robcog-iai/UROSBridge
 	branch = master
-[submodule "Plugins/UTags"]
-	path = Plugins/UTags
-	url = https://github.com/robcog-iai/UTags
-	branch = master
-[submodule "Plugins/UConversions"]
-	path = Plugins/UConversions
-	url = https://github.com/robcog-iai/UConversions.git
-	branch = master
 [submodule "Plugins/UUtils"]
 	path = Plugins/UUtils
 	url = https://github.com/robcog-iai/UUtils.git
