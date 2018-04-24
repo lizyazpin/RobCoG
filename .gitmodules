@@ -1,15 +1,3 @@
-[submodule "Plugins/UTFPublisher"]
-	path = Plugins/UTFPublisher
-	url = https://github.com/robcog-iai/UTFPublisher.git
-	branch = master
-[submodule "Plugins/URoboSim"]
-	path = Plugins/URoboSim
-	url = https://github.com/robcog-iai/URoboSim
-	branch = master
-[submodule "Plugins/UROSBridge"]
-	path = Plugins/UROSBridge
-	url = https://github.com/robcog-iai/UROSBridge
-	branch = master
 [submodule "Plugins/UUtils"]
 	path = Plugins/UUtils
 	url = https://github.com/robcog-iai/UUtils.git
