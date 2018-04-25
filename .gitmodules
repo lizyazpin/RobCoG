@@ -2,3 +2,11 @@
 	path = Plugins/UUtils
 	url = https://github.com/robcog-iai/UUtils.git
 	branch = master
+[submodule "Plugins/USemLog"]
+	path = Plugins/USemLog
+	url = https://github.com/robcog-iai/USemLog.git
+	branch = master
+[submodule "Plugins/libmongo"]
+	path = Plugins/libmongo
+	url = https://github.com/robcog-iai/libmongo.git
+	branch = master
